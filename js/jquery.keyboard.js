@@ -106,9 +106,8 @@ $.keyboard = function(el, options){
 			.addClass('ui-keyboard-input ' + o.css.input)
 			.attr({ 'aria-haspopup' : 'true', 'role' : 'textbox' });
 
-		// add disabled/readonly class - dynamically updated on reveal
-		if (base.$el.is(':disabled') || (base.$el.attr('readonly') &&
-			!base.$el.hasClass('ui-keyboard-lockedinput'))) {
+		// add disabled class - dynamically updated on reveal
+		if (base.$el.is(':disabled') && !base.$el.hasClass('ui-keyboard-lockedinput')) {
 			base.$el.addClass('ui-keyboard-nokeyboard');
 		}
 		if (o.openOn) {
@@ -183,8 +182,7 @@ $.keyboard = function(el, options){
 		$('.ui-keyboard').not('.ui-keyboard-always-open').hide();
 
 		// Don't open if disabled
-		if (base.$el.is(':disabled') || (base.$el.attr('readonly') &&
-			!base.$el.hasClass('ui-keyboard-lockedinput'))) {
+		if (base.$el.is(':disabled') && !base.$el.hasClass('ui-keyboard-lockedinput')) {
 			base.$el.addClass('ui-keyboard-nokeyboard');
 			return;
 		} else {
